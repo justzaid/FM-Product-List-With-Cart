@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://justzaid.github.io/Frontend-Mentor-Product-List-With-Cart/)
+- Live Site URL: [Product list with Cart](https://justzaid.github.io/Frontend-Mentor-Product-List-With-Cart/)
 
 ## My process
 
