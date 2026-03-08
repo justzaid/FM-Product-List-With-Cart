@@ -1,7 +1,12 @@
 body {
     margin: 0;
-    padding: 0px 25px;
+    padding: 0;
     background-color: #FCF8F5;
+}
+
+button {
+    border: none;
+    outline: none;
 }
 
 h1 {
@@ -9,19 +14,18 @@ h1 {
     font-size: 40px;
 }
 
-.productCard {
-    margin-bottom: 30px;
-}
-
-.imgButton>img{
-    width: 100%;
-    border-radius: 10px;
-}
-
 .imgButton {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.imgButton.active>img:first-child {
+    outline: 3px solid hsl(14, 86%, 42%);
+}
+
+.addToCart > img {
+    margin-right: 7px;
 }
 
 .addToCart {
@@ -32,7 +36,7 @@ h1 {
     border-radius: 22px;
     width: 165px;
     height: 45px;
-    border-color: hsl(14, 25%, 72%);
+    border: 2px solid hsl(14, 25%, 72%);
     font-family: "Red Hat Text";
     font-weight: 600;
     font-size: 14px;
@@ -40,11 +44,16 @@ h1 {
     cursor: pointer;
 }
 
+.addToCart:hover {
+    color: hsl(14, 86%, 42%);
+    border-color: hsl(14, 86%, 42%);
+}
+
 .incDec {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 14px;
     background-color: hsl(14, 86%, 42%);
     color: white;
     border-radius: 22px;
@@ -59,16 +68,25 @@ h1 {
 
 .dot {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     border: 2px solid white;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1;
 }
 
-.addToCart > img {
-    margin-right: 7px;
+.dot:hover {
+    background-color: hsl(20, 50%, 98%);
+    color: hsl(14, 86%, 42%);
+    cursor: pointer;
+}
+
+.foodCard {
+    transform: translateY(-10px);
 }
 
 .foodCard>p {
@@ -80,13 +98,13 @@ h1 {
 .foodTitle {
     color: hsl(7, 20%, 60%);
     font-family: "Red Hat Text";
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .foodDescription {
     font-family: "Red Hat Text";
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .foodPrice {
@@ -129,6 +147,20 @@ h1 {
     display: none;
 }
 
+#empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Red Hat Text";
+    color: hsl(12, 20%, 44%);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#empty-cart > img {
+    width: clamp(120px, 30vw, 180px);
+}
+
 .cartCardInfoContainerMain {
     display: flex;
     flex-direction: column;
@@ -156,30 +188,35 @@ h1 {
     font-weight: 400;
 }
 
-.cartCardInfo>.quantity {
+#quantity {
     color: hsl(14, 86%, 42%);
     margin-right: 15px;
     font-weight: bold;
 }
 
-.cartCardInfo>.originalItemPrice {
+#originalItemPrice {
     margin-right: 12px;
 }
 
-.cartCardInfo>.totalItemPrice {
+#totalItemPrice {
     font-weight: 600;
 }
 
 .hr {
-    border-color: hsla(13, 31%, 94%, .2)
+    border-color: hsla(13, 31%, 94%, .2);
 }
 
-.cartCardInfoContainerMain>.blocker>.cartCardSeperator>.removeItem {
+#remove-item {
     border: 2px solid hsl(14, 25%, 72%);
-    border-radius: 50%;
-    height: 14px;
-    width: 14px;
+    color: hsl(14, 25%, 72%);
+    font-weight: 600;
+    font-size: 21px;
     margin-bottom: 15px;
+}
+
+#remove-item:hover {
+    border-color: hsl(12, 20%, 44%);
+    color: hsl(12, 20%, 44%);
     cursor: pointer;
 }
 
@@ -187,18 +224,22 @@ h1 {
     display: flex;
     justify-content: center;
     background-color: hsl(20, 50%, 98%);
-    border-radius: 5px;
+    border-radius: 8px;
     margin-bottom: 25px;
 }
 .carbonNote2 {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     font-family: "Red Hat Text";
     font-size: 13px;
-    width: 90%;
 }
 
-#confirm {
+#carbon-neutral-icon {
+    width: 22px;
+    margin-right: 10px;
+}
+
+#confirm-order {
     background-color: hsl(14, 86%, 42%);
     border: 0px solid;
     color: white;
@@ -208,3 +249,412 @@ h1 {
     border-radius: 25px;
     cursor: pointer;
 }
+
+#confirm-order:hover {
+    background-color: #952C0C;
+}
+
+.orderModalContainer h2 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.orderModalContainer p {
+    color: hsl(7, 20%, 60%);
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#order-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 10px;
+    font-family: "Red Hat Text";
+    background: white;
+    z-index: 1000;
+}
+
+#order-modal.active {
+    display: block;
+    width: 30%;
+    max-height: 75%;
+    overflow-y: auto;
+}
+
+#modal-content {
+    padding: 30px 20px 25px 20px;
+}
+
+#modal-button {
+    background-color: hsl(14, 86%, 42%);
+    border: 0px solid;
+    color: white;
+    font-family: "Red Hat Text";
+    width: 100%;
+    height: 45px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#modal-button:hover {
+    background-color: #952C0C;
+}
+
+#modal-cart-holder {
+    display: flex;
+    flex-direction: column;
+    background-color: #FCF8F5;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+#modal-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+#overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#overlay.active {
+    display: block;
+}
+
+#cartImageHolder {
+    display: flex;
+    align-items: center;
+}
+
+#cartImage {
+    border-radius: 5px;
+}
+
+#cartTitle {
+    font-family: "Red Hat Text";
+    color: hsl(14, 65%, 9%);
+    font-weight: 600;
+}
+
+#order-confirm-image {
+    width: 50px;
+}
+
+#cartInfo1 {
+    display: flex;
+}
+
+
+#cartPrices {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cartQuaPrice {
+    display: flex;
+}
+
+#cartQuantity {
+    color: hsl(14, 86%, 42%);
+    font-size: 12px;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+#cartOriginalPrice {
+    font-family: "Red Hat Text";
+    color: hsl(12, 20%, 44%);
+    font-weight: 400;
+}
+
+#cartInfo2 {
+    display: flex;
+    align-items: center;
+    font-family: "Red Hat Text";
+    color: hsl(14, 65%, 9%);
+    font-weight: 600;
+}
+
+#hr2 {
+    border: none;
+    border-top: 2px solid;
+    border-color:  hsla(12, 14%, 86%, .5);
+}
+
+#cart-total-holder {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 5px 0px;
+}
+
+#cart-total-identifier {
+    font-family: "Red Hat Text";
+    color: hsl(14, 65%, 9%);
+    font-weight: 500;
+}
+
+#cart-total {
+    font-family: "Red Hat Text";
+    color: hsl(14, 65%, 9%);
+    font-weight: bold;
+}
+
+.attribution {
+    font-family: "Red Hat Text";
+}
+
+#empty-cart.hide {
+    display: none;
+}
+
+/* Mobile First View */
+@media screen and (min-width: 320px) {
+
+    body {
+        padding: 0px 25px;
+    }
+
+    .productCard {
+        margin-bottom: 30px;
+    }
+
+    .imgButton>img{
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .imgButton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dialog-card {
+        width: 100%;
+        height: 80%;
+        border-radius: 20px 20px 0 0;
+    }
+
+    #cartImageHolder {
+        margin-right: 10px;
+    }
+
+    #cartImage {
+        width: 50px;
+    }
+
+    #cartTitle {
+        font-size: 12px;
+    }
+
+    #cartQuantity {
+        font-size: 12px;
+    }
+
+    #cartOriginalPrice {
+        font-size: 12px;
+    }
+
+    #cartInfo2 {
+        font-size: 12px;
+    }
+
+    #hr2 {
+        margin: 10px 10px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #empty-cart p {
+        font-size: 14px;
+    }
+
+    #modal-button {
+        margin-top: 25px;
+    }
+
+    #cart-total-holder {
+        margin-top: 10px;
+    }
+
+    #cart-total-identifier {
+        font-size: 12px;
+    }
+
+    #cart-total {
+        font-size: 14px;
+    }
+
+    #order-confirm-image {
+        width: 15%;
+    }
+
+}
+
+
+@media screen and (max-width:425px) {
+
+    .orderModalContainer h2 {
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 595px) {
+
+    #order-modal.active {
+        top: 100%;
+        transform: translate(-50%, -100%);
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+        height: 100%;
+        max-height: 90%;
+    }
+}
+
+@media screen and (min-width: 596px) {
+    body {
+        padding: 20px 70px
+    }
+
+    #product-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    #modal-button {
+        margin-top: 20px;
+    }
+
+    #order-modal.active {
+        width: 60%;
+    }
+
+}
+
+/* Laptop / Desktop View */
+@media screen and (min-width: 1024px){
+    body {
+        padding: 45px 80px 0px 80px;
+    }
+
+    #body-content {
+        display: flex;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+    margin-bottom: 20px;
+    }
+
+    #product-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .productCard {
+        margin-bottom: 20px;
+    }
+
+    .imgButton>img{
+        width: 250px;
+        border-radius: 10px;
+    }
+
+    #cart-card {
+        width: 45%;
+        height: 100%;
+    }
+
+    #cartImageHolder {
+        margin-right: 15px;
+    }
+
+    #cartImage {
+        width: 60px;
+    }
+
+    #cartTitle {
+        font-size: 14px;
+    }
+
+    #cartQuantity {
+        font-size: 14px;
+    }
+
+    #cartOriginalPrice {
+        font-size: 14px;
+    }
+
+    #cartInfo2 {
+        font-size: 14px;
+    }
+
+    #hr2 {
+        width: 93%;
+    }
+
+    #modal-button {
+        margin-top: 30px;
+    }
+
+    #cart-total-holder {
+        margin: 5px 0px;
+    }
+
+    #cart-total-identifier {
+        font-size: 14px;
+    }
+
+    #cart-total {
+        font-size: 18px;
+    }
+
+    #order-modal.active {
+        width: 50%;
+    }
+
+    #order-confirm-image {
+        width: 50px;
+    }
+
+    #modal-content {
+        padding: 40px 40px 30px 40px;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+
+    #product-list {
+        width: 90%;
+    }
+
+    #order-modal.active {
+        width: 35%;
+    }
+}
+
+
+

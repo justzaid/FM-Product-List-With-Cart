@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles.css">
@@ -13,7 +13,6 @@
 
   <title>Frontend Mentor | Product list with cart</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -21,213 +20,67 @@
 </head>
 <body>
 
-  <div id="product-list">
-    <h1>Desserts</h1>
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-waffle-mobile.jpg" alt="Barries Waffle">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Waffle</p>
-        <p class="foodDescription">Waffle with Berries</p>
-        <p class="foodPrice" id="6.5">$6.50</p>
-      </div>
-    </div>
+  <h1>Desserts</h1>
 
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-creme-brulee-mobile.jpg" alt="Creme Brulee">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          <p>Add to Cart</p>
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Crème Brûlée</p>
-        <p class="foodDescription">Vanilla Bean Crème Brûlée</p>
-        <p class="foodPrice" id="7">$7.00</p>
-      </div>
-    </div>
+  <div id="body-content">
+    <div id="product-list">
 
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-macaron-mobile.jpg" alt="Creme Brulee">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          <p>Add to Cart</p>
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Macaron</p>
-        <p class="foodDescription">Macaron Mix of Five</p>
-        <p class="foodPrice" id="8">$8.00</p>
-      </div>
     </div>
-
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-tiramisu-mobile.jpg" alt="Creme Brulee">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Tiramisu</p>
-        <p class="foodDescription">Classic Tiramisu</p>
-        <p class="foodPrice" id="5.5">$5.50</p>
-      </div>
-    </div>
-
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-baklava-mobile.jpg" alt="Creme Brulee">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Baklava</p>
-        <p class="foodDescription">Pistachio Baklava</p>
-        <p class="foodPrice" id="4.5">$4.50</p>
-      </div>
-    </div>
-
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-meringue-mobile.jpg" alt="Pie">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Pie</p>
-        <p class="foodDescription">Lemon Meringue Pie</p>
-        <p class="foodPrice" id="5">$5.00</p>
-      </div>
-    </div>
-
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-cake-mobile.jpg" alt="Cake">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Cake</p>
-        <p class="foodDescription">Red Velvet Cake</p>
-        <p class="foodPrice" id="4.5">$4.50</p>
-      </div>
-    </div>
-    
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-brownie-mobile.jpg" alt="Brownie">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Brownie</p>
-        <p class="foodDescription">Salted Caramel Brownie</p>
-        <p class="foodPrice" id="4.5">$4.50</p>
-      </div>
-    </div>
-    
-    <div class="productCard">
-      <div class="imgButton">
-        <img src="./assets/images/image-tiramisu-mobile.jpg" alt="Creme Brulee">
-        <button class="addToCart">
-          <img src="./assets/images/icon-add-to-cart.svg" alt="cartImage">
-          Add to Cart
-        </button>
-        <button class="incDec hide">
-          <div class="dot decrement"><img src="./assets/images/icon-decrement-quantity.svg" alt="decremenet quantity"></div>
-          <p class="buttonValue">0</p>
-          <div class="dot increment"><img src="./assets/images/icon-increment-quantity.svg" alt="increment quantity"></div>
-        </button>
-      </div>
-      <div class="foodCard">
-        <p class="foodTitle">Panna cotta</p>
-        <p class="foodDescription">Vanilla Panna Cotta</p>
-        <p class="foodPrice" id="6.5">$6.50</p>
-      </div>
-    </div>
-    
-  </div>
-    
-  <div id="cart-card">
-      <h2 class="cartValue">Your Cart</h2>
-      <div class="cartCardInfoContainerMain">
-        <div class="blocker">
-
+      
+    <div id="cart-card">
+        <h2 class="cartValue">Your Cart (0)</h2>
+        <div id="empty-cart">
+          <img src="./assets/images/illustration-empty-cart.svg" alt="emptyCart">
+          <p>Your added items will appear here</p>
         </div>
-      </div>
-      <div id="order-total">
-        <p>Order Total</p>
-        <h2 class="totalCartPrice">$0</h2>
-      </div>
-      <div class="carbonNote">
-        <div class="carbonNote2">
-          <img src="./assets/images/icon-carbon-neutral.svg" alt="carbon neutral icon">
-          <p>This is a <span style="font-weight: bold;">carbon-neutral</span> delivery</p>
+        <div id="show-cart" class="hide">
+          <div class="cartCardInfoContainerMain">
+            <div class="blocker">
+              
+            </div>
+          </div>
+          <div id="order-total">
+            <p>Order Total</p>
+            <h2 class="totalCartPrice">$0</h2>
+          </div>
+          <div class="carbonNote">
+            <div class="carbonNote2">
+              <img id="carbon-neutral-icon" src="./assets/images/icon-carbon-neutral.svg" alt="carbon neutral icon">
+              <p>This is a <span style="font-weight: bold;">carbon-neutral</span> delivery</p>
+            </div>
+          </div>
+          <button id="confirm-order">Confirm Order</button>
         </div>
-      </div>
-      <button id="confirm">Confirm Order</button>
+          
+        <div class="orderModalContainer">
+          <div id="overlay">
+          <div id="order-modal">
+              <div id="modal-content">
+                <img id="order-confirm-image" src="./assets/images/icon-order-confirmed.svg" alt="confirmed order icon">
+                <h2>Order Confirmed</h2>
+                <p>We hope you enjoy your food!</p>
+                <div id="modal-cart-holder">
+                  <div id="modal-cart-info">
+                    
+                  </div>
+                  <div id="cart-total-holder">
+                    <div id="cart-total-identifier">Order Total</div>
+                    <div id="cart-total"></div>
+                  </div>
+                </div>
+                <form method="dialog">
+                  <button id="modal-button">Start New Order</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Zaid</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/justzaid">Zaid</a>.
   </div>
 </body>
 </html>
